@@ -2,10 +2,11 @@ import axios from 'axios';
 
 import React from 'react';
 import SearchBar from './SearchBar';
+import AboutWebsite from './AboutWebsite';
 
 class App extends React.Component {
 
-    state = { website: [] };
+    state = { website: []};
 
     onSearchSubmit = async (term) => {
         const response = await axios.get('https://api.linkpreview.net', {
@@ -17,9 +18,9 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="ui container" style={{marginTop: '10px'}}>
+            <div className="ui container" style={{marginTop: '10px', display:'flex', flexDirection:'column', alignItems:'center'}}>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
-                Found: {this.state.website.description} 
+                <AboutWebsite websiteData={this.state}/>
             </div>
         );
     }
