@@ -16,11 +16,20 @@ class App extends React.Component {
         this.setState({website: response.data})
     }
 
+
+    onSave() {
+        console.log('button is clicked');
+    }
+
+
+
     render() {
         return (
             <div className="ui container" style={{marginTop: '10px', display:'flex', flexDirection:'column', alignItems:'center'}}>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
                 <AboutWebsite websiteData={this.state}/>
+                <button onClick={this.onSave} style={{marginTop: '130px'}}>Save Changes</button>
+
             </div>
         );
     }
